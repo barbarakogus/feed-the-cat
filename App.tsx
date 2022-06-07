@@ -18,7 +18,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Feed your Cat</Text>
-      {cats.map((cat, key) => 
+      {cats.map((cat, key) =>
         <Cat key={key} cat={cat} />
       )}
       <StatusBar style="auto" />
