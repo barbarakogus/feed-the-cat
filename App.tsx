@@ -28,8 +28,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#C7ECC0',
+    flex: 1,
     alignItems: 'center',
   },
   title: {
