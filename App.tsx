@@ -1,10 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Cat from './components/Cat';
+
+const cats: Cat[] = [
+  {
+    name: 'Lady'
+  },
+  {
+    name: 'Mici'
+  },
+  {
+    name: 'Serena'
+  }
+]
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text style={styles.title}>Feed your Cat</Text>
+      {cats.map((cat, key) => 
+        <Cat key={key} cat={cat} />
+      )}
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +29,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#C7ECC0',
     alignItems: 'center',
-    justifyContent: 'center',
   },
+  title: {
+    fontSize: 50,
+    marginTop: 50
+  }
 });
