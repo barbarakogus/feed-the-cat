@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Cat from './components/Cat';
 
 const cats: Cat[] = [
@@ -18,9 +18,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Feed your Cat</Text>
-      {cats.map((cat, key) =>
+      {/* {cats.map((cat, key) =>
         <Cat key={key} cat={cat} />
-      )}
+      )} */}
+      <FlatList
+        data={cats}
+        renderItem={({item}) => <Cat cat={item} />}>
+      </FlatList>
       <StatusBar style="auto" />
     </View>
   );
