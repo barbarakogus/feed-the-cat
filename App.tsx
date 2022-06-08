@@ -1,43 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
-import Cat from './components/Cat';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './components/Home';
+import CatProfile from './components/CatProfile';
 
-const cats: Cat[] = [
-  {
-    name: 'Lady'
-  },
-  {
-    name: 'Mici'
-  },
-  {
-    name: 'Serena'
-  }
-]
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Feed your Cat</Text>
-      {/* {cats.map((cat, key) =>
-        <Cat key={key} cat={cat} />
-      )} */}
-      <FlatList
-        data={cats}
-        renderItem={({item}) => <Cat cat={item} />}>
-      </FlatList>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home' >
+        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name="Profile" component={CatProfile} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#C7ECC0',
-    flex: 1,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 50,
-    marginTop: 50
-  }
-});
+

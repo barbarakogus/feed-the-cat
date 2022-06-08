@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Text, Image, View, Pressable, StyleSheet } from "react-native";
+import { Button, Text, Image, View, Pressable, StyleSheet } from "react-native";
 
 interface CatProps {
     cat: Cat
+    navigation: any
 };
 
-const Cat = ({ cat }: CatProps) => {
+const Cat = ({ cat, navigation }: CatProps) => {
 
     const [isHungry, setIsHungry] = useState(true);
 
@@ -22,6 +23,9 @@ const Cat = ({ cat }: CatProps) => {
                     /*disabled={!isHungry}*/>
                     <Text>{isHungry ? 'Pour me some milk, please!' : 'Thank you!'}</Text>
                 </Pressable>
+                <Button
+                    title="Go to Cat Profile"
+                    onPress={() => navigation.navigate('Profile', { name: cat.name })} />
             </View>
             <Image style={styles.image} source={{ uri: "https://cataas.com/cat?type=sq" }}></Image>
         </View>
