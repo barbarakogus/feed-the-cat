@@ -1,10 +1,16 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const CatProfile = ({ navigation, route}: any) => {
+const CatProfile = ({ route }: any) => {
+
+    const { cat } = route.params;
+
     return(
         <View>
-            <Text>{route.params.name}</Text>
+            <Text>{cat.name}</Text>
+            <Text>{cat.age}</Text>
+            <Text>{cat.color}</Text>
+            <Text>{cat.breed}</Text>
         </View>
     )
 };

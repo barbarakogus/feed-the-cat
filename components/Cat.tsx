@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Text, Image, View, Pressable, StyleSheet } from "react-native";
+import { Text, Image, View, Pressable, StyleSheet } from "react-native";
 
 interface CatProps {
     cat: Cat
@@ -23,9 +23,11 @@ const Cat = ({ cat, navigation }: CatProps) => {
                     /*disabled={!isHungry}*/>
                     <Text>{isHungry ? 'Pour me some milk, please!' : 'Thank you!'}</Text>
                 </Pressable>
-                <Button
-                    title="Go to Cat Profile"
-                    onPress={() => navigation.navigate('Profile', { name: cat.name })} />
+                <Pressable
+                    style={styles.catProfileButton}
+                    onPress={() => navigation.navigate('Profile', { cat: cat } )}>
+                    <Text>Go to Cat Profile</Text>
+                </Pressable>
             </View>
             <Image style={styles.image} source={{ uri: "https://cataas.com/cat?type=sq" }}></Image>
         </View>
@@ -35,6 +37,7 @@ const Cat = ({ cat, navigation }: CatProps) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
+        justifyContent: 'space-between',
         marginVertical: 10,
     },
     title: {
@@ -44,17 +47,24 @@ const styles = StyleSheet.create({
         fontSize: 16,
         margin: 5,
     },
-    image: {
-        height: 100,
-        margin: 6,
-        width: 100,
-    },
     feedButton: {
         alignItems: 'center',
         backgroundColor: '#F9A487',
         borderRadius: 8,
         padding: 5,
-    }
+    },
+    catProfileButton: {
+        alignItems: 'center',
+        backgroundColor: '#C8E8F5',
+        borderRadius: 8,
+        marginTop: 4,
+        padding: 5,
+    },
+    image: {
+        height: 100,
+        margin: 6,
+        width: 100,
+    },
 })
 
 export default Cat; 
