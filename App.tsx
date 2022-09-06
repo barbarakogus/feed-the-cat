@@ -5,11 +5,21 @@ import CatProfile from './components/CatProfile';
 
 const Stack = createNativeStackNavigator();
 
+const linking = {
+  prefixes: ['http://localhost:19007'],
+  config: {
+    screens: {
+      Home: '/',
+      Profile: '/profile'
+    }
+  }
+}
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: true}} >
-        <Stack.Screen name='Home' component={Home}/>
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }} >
+        <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name="Profile" component={CatProfile} />
       </Stack.Navigator>
     </NavigationContainer>
