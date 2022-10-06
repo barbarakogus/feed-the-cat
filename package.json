@@ -28,5 +28,10 @@
     "cypress": "^10.4.0",
     "typescript": "~4.3.5"
   },
+  "babel": {
+    "presets": [
+      "babel-preset-expo"
+    ]
+  },
   "private": true
 }

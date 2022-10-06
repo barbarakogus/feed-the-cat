@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Cat from './Cat';
 
 const cats: Cat[] = [
@@ -27,25 +27,19 @@ export default function Home({ navigation }: any) {
   return (
     <>
       <View style={{ backgroundColor: 'pink', height: 30 }}>
-        <Text>Heade here</Text>
+        <Text>Header here</Text>
       </View>
-      <ScrollView>
-        <View style={styles.container}>
-          <Text style={styles.title}>Feed your Cat</Text>
-          {/* {cats.map((cat, key) =>
+      <View style={styles.container}>
+        <Text style={styles.title}>Feed your Cat</Text>
+        {/* {cats.map((cat, key) =>
           <Cat key={key} cat={cat} />
         )} */}
-          <FlatList
-            data={cats}
-            renderItem={({ item }) => <Cat cat={item} navigation={navigation} />}>
-          </FlatList>
-          <FlatList
-            data={cats}
-            renderItem={({ item }) => <Cat cat={item} navigation={navigation} />}>
-          </FlatList>
-          <StatusBar style="auto" />
-        </View>
-      </ScrollView>
+        <FlatList
+          data={cats}
+          renderItem={({ item }) => <Cat cat={item} navigation={navigation} />}>
+        </FlatList>
+        <StatusBar style="auto" />
+      </View>
     </>
   );
 }
